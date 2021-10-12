@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body style="padding: 20px;">
+    <!-- 1、添加图书的面板 -->
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加新图书</h3>
+        </div>
+        <div class="panel-body form-inline">
+
+            <div class="input-group">
+                <div class="input-group-addon">书名</div>
+                <input type="text" class="form-control" id="iptBookname" placeholder="请输入书名">
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon">作者</div>
+                <input type="text" class="form-control" id="iptAuthor" placeholder="请输入作者">
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon">出版社</div>
+                <input type="text" class="form-control" id="iptPublisher" placeholder="请输入出版社">
+            </div>
+            <button id="btnAdd" class="btn btn-primary">添加</button>
+        </div>
+    </div>
+
+    <!-- 2、图书的表格 -->
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="td">
+
+        </tbody>
+
+        <script>
+            $(function() {
+                //1、获取数据
+                function getBooklist() {
+                    $.get('http://www.liulongbin.top:3006/api/getbooks', function(res) {
+                        // console.log(res);
+                        if (res.status !== 200) return alert('获取数据失败');
+                        var rows = [];
+                        $.each(res.data, function(i, item) {
+                            rows.push('<tr><td>' + item.id + '</td><td>' + item.bookname + '</td><td>' + item.author + '</td><td>' + item.publisher +
+                                '</td><td><a href="javascript:;" class="del" data-id = "' + item.id + '">删除</a></td></tr>')
+                        });
+                        $('#td').empty().append(rows.join(''));
+                    });
+                }
+                getBooklist();
+                //使用代理模式，为动态添加的a链接绑定点击事件*********删除
+                $('#td').on('click', '.del', function() {
+                    var ids = Number($(this).attr('data-id'));
+                    console.log(typeof ids);
+                    //1、删除图书数据
+                    $.get('http://www.liulongbin.top:3006/api/delbook', {
+                        id: ids
+                    }, function(res) {
+                        if (res.status !== 200) return alert('删除数据失败');
+                        getBooklist();
+                    });
+                });
+                //**************************添加
+                $('#btnAdd').on('click', function() {
+                    var bookname = $('#iptBookname').val().trim();
+                    var author = $('#iptAuthor').val().trim();
+                    var publisher = $('#iptPublisher').val().trim();
+                    if (bookname.length <= 0 || author.length <= 0 || publisher.length <= 0)
+                        return alert('请填写完整的图书信息');
+                    // alert('ok');
+                    $.post('http://www.liulongbin.top:3006/api/addbook', {
+                        bookname: bookname,
+                        author: author,
+                        publisher: publisher
+                    }, function(res) {
+                        if (res.status !== 201) return alert('添加图书信息失败');
+                        getBooklist();
+                        $('#iptBookname').val('');
+                        $('#iptAuthor').val('');
+                        $('#iptPublisher').val('');
+                    });
+                });
+            });
+        </script>
+    </table>
+
+</body>
+
+</html>

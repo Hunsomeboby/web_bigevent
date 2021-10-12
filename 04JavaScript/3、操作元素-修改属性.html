@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        button {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="images/美女1号.jpg" alt="" class="img">
+    </div>
+    <button id="one">美女1号</button>
+    <button id="two">美女2号</button>
+
+    <script>
+        var one = document.getElementById("one");
+        var two = document.getElementById("two");
+        var img = document.getElementsByClassName("img");
+
+        one.onclick = function() {
+            img[0].src = "images/美女1号.jpg";
+        }
+        two.onclick = function() {
+            img[0].src = "images/美女2号.jpg";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>我是来老li</li>
+    </ul>
+    <script>
+        //1、创建一个li
+        var li = $("<li>我是新添加的li</li>");
+        //2、添加创建的li
+        $("ul").append(li);
+        //3、删除元素
+        //删除所有ul
+        // $("ul").remove();
+        //删除所有ul中的子节点
+        // $("ul").empty();
+        //删除所有ul中的元素内容
+        $("ul").html(" ");
+    </script>
+</body>
+
+</html>

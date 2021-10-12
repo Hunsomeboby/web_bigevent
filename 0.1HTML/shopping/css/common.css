@@ -1,0 +1,323 @@
+/* 声明字体图标  注意自己当前font文件夹的路径，要修改*/
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?6e7ioz');
+    src: url('../fonts/icomoon.eot?6e7ioz#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?6e7ioz') format('truetype'), url('../fonts/icomoon.woff?6e7ioz') format('woff'), url('../fonts/icomoon.svg?6e7ioz#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.style_red {
+    color: #c81623;
+}
+
+.shortcut .fr ul li:nth-child(even) {
+    width: 1px;
+    height: 12px;
+    margin-top: 9px;
+    /* margin-left: 15px;
+    margin-right: 15px; */
+    margin: 9px 15px 0;
+    background-color: #666;
+}
+
+
+/* 快捷导航模块 */
+
+.shortcut {
+    width: 100%;
+    line-height: 31px;
+    height: 31px;
+    background-color: #f1f1f1;
+}
+
+.shortcut ul li {
+    float: left;
+}
+
+.arrow-icon::after {
+    font-family: 'icomoon';
+    content: '\ea50';
+    margin-left: 6px;
+}
+
+
+/* header 头部制作 */
+
+.header {
+    position: relative;
+    height: 106px;
+    background-color: pink;
+}
+
+.logo {
+    position: absolute;
+    top: 27px;
+    width: 177px;
+    height: 55px;
+}
+
+.logo a {
+    display: block;
+    width: 177px;
+    height: 55px;
+    background: url(../images/logo.png);
+    /* 隐藏a链接中的字 */
+    /* font-size: 0; */
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.search {
+    position: absolute;
+    top: 27px;
+    left: 346px;
+    width: 538px;
+    height: 36px;
+    border: 2px solid #b1191a;
+}
+
+.search input {
+    float: left;
+    width: 454px;
+    height: 32px;
+    padding-left: 10px;
+}
+
+.search button {
+    float: left;
+    width: 80px;
+    height: 33px;
+    line-height: 33px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #b1191a;
+}
+
+.hotwords {
+    position: absolute;
+    top: 69px;
+    left: 346px;
+}
+
+.hotwords a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.shopcar {
+    position: absolute;
+    left: 997px;
+    top: 27px;
+    width: 140px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+}
+
+.shopcar::before {
+    font-family: 'icomoon';
+    content: '\e902';
+    color: #b1191a;
+    margin-right: 5px;
+}
+
+.shopcar::after {
+    font-family: 'icomoon';
+    content: '\e902';
+    margin-left: 10px;
+}
+
+.count {
+    position: absolute;
+    top: -5px;
+    left: 105px;
+    line-height: 14px;
+    height: 14px;
+    color: #fff;
+    background-color: #b1191a;
+    border-radius: 7px 7px 7px 0;
+    padding: 0 5px;
+}
+
+.nav {
+    height: 47px;
+    border-bottom: 2px solid #b1191a;
+}
+
+.nav .dropdow {
+    float: left;
+    width: 210px;
+    height: 45px;
+    background-color: #b1191a;
+}
+
+.nav .navitems {
+    float: left;
+}
+
+.dropdow .dt {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+}
+
+.dropdow .dd {
+    width: 100%;
+    height: 465px;
+    background-color: rgb(168, 16, 16);
+    margin-top: 2px;
+}
+
+.dd ul li {
+    position: relative;
+    height: 31px;
+    line-height: 31px;
+    padding-left: 10px;
+    margin-left: 2px;
+}
+
+.dd ul li::after {
+    position: absolute;
+    top: 1px;
+    right: 9px;
+    color: #fff;
+    font-family: 'icomoon';
+    content: '\e902';
+    font-size: 14px;
+}
+
+.dd ul li a {
+    font-size: 14px;
+    color: #fff;
+}
+
+.dd ul li:hover {
+    background-color: #fff;
+}
+
+.dd ul li:hover a {
+    color: #b1191a;
+}
+
+.dd ul li:hover::after {
+    color: #b1191a;
+}
+
+.navitems ul li {
+    float: left;
+}
+
+.navitems ul li a {
+    display: block;
+    height: 47px;
+    line-height: 47px;
+    padding: 0 25px;
+    font-size: 16px;
+}
+
+
+/* 底部模块 */
+
+.footer {
+    padding-top: 30px;
+    height: 415px;
+    background-color: #f5f5f5;
+}
+
+.mod-service {
+    height: 80px;
+    border-bottom: 1px solid #ccc;
+}
+
+.mod-service ul li {
+    float: left;
+    width: 240px;
+    height: 50px;
+    padding-left: 35px;
+    list-style: none;
+}
+
+.mod-service ul li h5 {
+    margin-right: 8px;
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url(../images/icons.png) no-repeat 0px 0px;
+}
+
+.service-txt {
+    margin-top: 7px;
+}
+
+.service-txt h4 {
+    font-size: 14px;
+}
+
+.service-txt p {
+    font-size: 12px;
+}
+
+.mod_help {
+    height: 185px;
+    padding-top: 20px;
+    padding-left: 50px;
+    border-bottom: 1px solid #ccc;
+}
+
+.mod_help dl {
+    float: left;
+    width: 200px;
+}
+
+.mod_help dl:last-child {
+    text-align: center;
+    width: 90px;
+}
+
+.mod_help dl dt {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.mod_help dl dd {
+    font-size: 12px;
+}
+
+.mod_copyright {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.link {
+    margin-bottom: 15px;
+}
+
+.link a {
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+.copyright {
+    line-height: 20px;
+}

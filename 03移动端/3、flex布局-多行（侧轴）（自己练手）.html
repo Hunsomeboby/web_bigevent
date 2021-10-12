@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            margin: 0 auto;
+            width: 800px;
+            height: 500px;
+            background-color: pink;
+            /* 换行 */
+            flex-wrap: wrap;
+            /* 多行:侧轴的排列方式 */
+            /* align-content: space-between; */
+            /* align-content: space-around; */
+        }
+        
+        span {
+            width: 150px;
+            height: 100px;
+            background-color: purple;
+            margin: 0 10px;
+        }
+        
+        div span:nth-child(6) {
+            /* 侧轴 */
+            align-self: flex-end;
+        }
+        /* order 谁的值越小，越在前面 */
+        
+        div span:nth-child(10) {
+            order: -3;
+        }
+        
+        div span:nth-child(3) {
+            order: -2;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span>9</span>
+        <span>10</span>
+    </div>
+</body>
+
+</html>

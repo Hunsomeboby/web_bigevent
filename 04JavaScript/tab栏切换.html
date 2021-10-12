@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .box {
+            width: 1200px;
+            height: 600px;
+            background-color: blue;
+            margin: 30px auto;
+        }
+        
+        .tab_list {
+            height: 50px;
+            background-color: blueviolet;
+            line-height: 50px;
+            text-align: center;
+        }
+        
+        .tab_list ul {
+            list-style: none;
+        }
+        
+        .tab_list ul li {
+            float: left;
+            width: 20%;
+        }
+        
+        .tab_con div:nth-child(n+2) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="tab_list">
+            <ul>
+                <li index='0' style="background-color: red;">商品介绍</li>
+                <li index='1'>规格与包装</li>
+                <li index='2'>售后保障</li>
+                <li index='3'>商品评价(50000)</li>
+                <li index='4'>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con" id="tab_con">
+            <div style="background-color: brown; height: 550px;"></div>
+            <div style="background-color: rgb(42, 165, 52); height: 550px;"></div>
+            <div style="background-color: rgb(42, 72, 107); height: 550px;"></div>
+            <div style="background-color: rgb(101, 31, 230); height: 550px;"></div>
+            <div style="background-color: rgb(163, 17, 144); height: 550px;"></div>
+        </div>
+    </div>
+    <script>
+        var list = document.getElementsByTagName('li');
+        var divs = document.getElementById('tab_con').getElementsByTagName("div");
+        for (var i = 0; i < list.length; i++) {
+            list[i].onclick = function() {
+                for (var index = 0; index < list.length; index++) {
+                    list[index].style.backgroundColor = '';
+                }
+                this.style.backgroundColor = 'red';
+                for (var j = 0; j < list.length; j++) {
+                    divs[j].style.display = 'none';
+                }
+                divs[this.getAttribute('index')].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

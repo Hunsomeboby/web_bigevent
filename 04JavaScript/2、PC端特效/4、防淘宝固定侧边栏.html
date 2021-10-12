@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .w {
+            width: 1200px;
+            margin: 10px auto;
+        }
+        
+        .header {
+            background-color: blue;
+            height: 240px;
+        }
+        
+        .banner {
+            background-color: rgb(62, 62, 78);
+            height: 600px;
+        }
+        
+        .zhuti {
+            background-color: rgb(37, 161, 68);
+            height: 250px;
+        }
+        
+        .slider-bar {
+            width: 60px;
+            height: 200px;
+            background-color: burlywood;
+            position: absolute;
+            top: 300px;
+            left: 50%;
+            margin-left: 610px;
+        }
+        
+        .slider-bar span {
+            position: absolute;
+            bottom: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header w"></div>
+    <div class="banner w">banner</div>
+    <div class="zhuti w"></div>
+    <div class="slider-bar">
+        <span class="dingbu">返回顶部</span>
+    </div>
+    <script>
+        //1、获取元素
+        var slidbar = document.querySelector('.slider-bar');
+        var banner = document.querySelector('.banner');
+        var dingbu = document.querySelector('.dingbu');
+        var slidbarTop = slidbar.offsetTop - banner.offsetTop;
+        //2、给整个页面添加滚动事件
+        document.addEventListener('scroll', function() {
+            //3、获取页面向上滚动的值（向上滚动了多少）
+            console.log(window.pageYOffset);
+            //4、当滚动了大于等于260px，设置侧边栏为固定定位
+            //260px是自己设置的，可随意设置
+            if (window.pageYOffset >= 260) {
+                dingbu.style.display = 'block';
+                slidbar.style.top = slidbarTop + 'px';
+                slidbar.style.position = 'fixed';
+            }
+            //5、当滚动了小于260px，设置侧边栏为绝对定位
+            else {
+                dingbu.style.display = 'none';
+                slidbar.style.top = 300 + 'px';
+                slidbar.style.position = 'absolute';
+            }
+
+            console.log('滑动' + slidbar.style.marginTop);
+        });
+        dingbu.addEventListener('click', function() {
+            animate_huandong(window, 0);
+        });
+
+
+        function animate_huandong(obj, target, callback) {
+            //保证一个对象只有一个定时器，解决每点击一次就会开启一个定时器的bug
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                var step = (target - window.pageYOffset) / 10;
+                //后退是负数，取整要用负数的函数取，整数取整用Math.ceil
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (window.pageYOffset == target) {
+                    clearInterval(obj.timer);
+                    //回调函数
+                    if (callback) {
+                        //调用回调函数
+                        callback();
+                    }
+                }
+                //（目标值 - 当前位子）/ 10
+                // obj.style.left = window.pageYOffset + step + 'px';
+                window.scroll(0, window.pageYOffset + step);
+            }, 30);
+        }
+    </script>
+</body>
+
+</html>

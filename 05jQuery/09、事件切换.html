@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .nav>li {
+            float: left;
+            margin-left: 30px;
+            height: 30px;
+            background-color: rgb(212, 18, 51);
+        }
+        
+        .nav>li ul {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+        <div style="clear: both;"></div>
+    </ul>
+    <div>123</div>
+    <div>123</div>
+    <script>
+        // 1、事件切换  鼠标的经过和离开：复合写法
+        // $('.nav>li').hover(function() {
+        //     $(this).children('ul').slideDown();
+        // }, function() {
+        //     $(this).children('ul').slideUp();
+        // });
+
+        // 2、事件切换  继续改进 只写一个函数时，鼠标经过还是离开还会触发
+        $('.nav>li').hover(function() {
+            $(this).children('ul').stop().slideToggle();
+        });
+    </script>
+</body>
+
+</html>

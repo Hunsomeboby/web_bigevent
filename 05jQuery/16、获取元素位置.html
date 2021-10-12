@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body style="height: 2000px;">
+    <div style="width: 200px;height: 200px;margin: 100px 100px;background-color: blue;"></div>
+    <script>
+        $(window).scroll(function() {
+            //1、获取元素距离文档的大小
+            console.log($("div").offset().top);
+            //2、获取文本被卷去的头部距离
+            console.log($(document).scrollTop());
+        });
+    </script>
+</body>
+
+</html>

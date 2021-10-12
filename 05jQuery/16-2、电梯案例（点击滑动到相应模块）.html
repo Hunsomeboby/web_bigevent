@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+            cursor: pointer;
+        }
+        
+        .box {
+            margin: 0 auto;
+            width: 1200px;
+            height: 2800px;
+            background-color: blueviolet;
+        }
+        
+        .left_nav {
+            position: fixed;
+            width: 130px;
+            left: 50%;
+            top: 100px;
+            margin-left: -730px;
+            text-align: center;
+            background-color: blueviolet;
+        }
+        
+        .nav {
+            height: 50px;
+            background-color: rgb(196, 55, 55);
+        }
+        
+        .iphone {
+            margin-top: 10px;
+            height: 500px;
+            background-color: rgb(143, 132, 132);
+        }
+        
+        .life_dianqi {
+            margin-top: 10px;
+            height: 550px;
+            background-color: rgb(58, 151, 194);
+        }
+        
+        .life_goods {
+            margin-top: 10px;
+            height: 300px;
+            background-color: rgb(204, 137, 74);
+        }
+        
+        .play {
+            margin-top: 10px;
+            height: 200px;
+            background-color: rgb(185, 25, 60);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="left_nav">
+            <ul>
+                <li>手机市场</li>
+                <li>家用电器</li>
+                <li>生活用品</li>
+                <li>娱乐设施</li>
+            </ul>
+        </div>
+        <div class="nav">导航栏</div>
+        <div class="iphone">手机市场</div>
+        <div class="life_dianqi">家用电器</div>
+        <div class="life_goods">生活用品</div>
+        <div class="play">娱乐设施</div>
+    </div>
+    <script>
+        //节流阀，避免点击事件发生的同时，滑动事件也发生
+        var flag = true;
+        $(".left_nav ul li").click(function() {
+            //点击就关闭节流阀，让滑动事件不能发生
+            flag = false;
+            //1、鼠标进入改变背景颜色
+            $(this).siblings().css("backgroundColor", "blueviolet");
+            $(this).css("backgroundColor", "red");
+            //2、点击滑动到相应模块
+            // console.log($(this).index());
+            // console.log($("div")[$(this).index() + 3]);
+            // console.log($($("div")[$(this).index() + 3]).offset().top);
+            //2-1、获取要滑动的距离
+            var moveY = $($("div")[$(this).index() + 3]).offset().top;
+            $("body,html").stop().animate({
+                scrollTop: moveY
+            }, function() {
+                //点击事件完成之后，打开节流阀
+                flag = true;
+            });
+        });
+        //3、滑动时，改变侧边导航栏相应的内容
+        $(window).scroll(function() {
+            if (flag) {
+                $(".box").children("div").each(function(i, e) {
+                    // console.log(e);
+                    // console.log($("body,html").scrollTop());
+                    if ($("body,html").scrollTop() >= $(e).offset().top - 10) {
+                        if (i > 1) {
+                            $("li").css("backgroundColor", "blueviolet");
+                            $("li").eq(i - 2).css("backgroundColor", "red");
+                        }
+                    } else if (($("body,html").scrollTop() <= 0)) {
+                        $("li").css("backgroundColor", "blueviolet");
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

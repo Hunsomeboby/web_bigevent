@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        body {
+            max-width: 720px;
+            min-width: 320px;
+            margin: 0 auto;
+        }
+        
+        .box {
+            overflow: hidden;
+            height: 500px;
+            background-color: purple;
+        }
+        
+        .box ul {
+            width: 500%;
+            /* transition: all 0.6s; */
+        }
+        
+        .box ul li {
+            float: left;
+            width: 20%;
+            height: 500px;
+            background: -webkit-linear-gradient(left, #FA5A55, #FA994D);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>1</li>
+        </ul>
+    </div>
+    <script>
+        //1.获取存放ul的盒子，以及进行移位的标签（轮播图的对象）
+        var box = document.querySelector('.box');
+        var ul = box.children[0];
+        //2.自动播放轮播图
+        //(1)定义一个自增的变量，让移动的位置数值可以增加（不增加就移动不了）
+        var index = 0;
+        var timer = setInterval(function() {
+            index++;
+            ul.style.transition = 'all .6s'
+                //(2)每次移动的数值为放ul盒子的倍数
+            var moveX = -index * box.offsetWidth;
+            //(3)开始移动轮播图
+            ul.style.transform = 'translate(' + moveX + 'px)';
+        }, 1000);
+        //等着过度完成之后，再去判断，监听过渡完成的事件 transitionend
+        ul.addEventListener('transitionend', function() {
+            // console.log('过度完成了');
+            if (index >= 4) {
+                index = 0;
+                //去掉过渡效果
+                ul.style.transition = 'none';
+                //快速返回第一张
+                var translateX = -index * box.offsetWidth;
+                ul.style.transform = 'translateX(' + translateX + 'px)';
+            }
+        });
+    </script>
+</body>
+
+</html>

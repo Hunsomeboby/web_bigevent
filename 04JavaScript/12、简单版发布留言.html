@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .box {
+            width: 1200px;
+            height: 650px;
+            background-color: chocolate;
+            margin: 35px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>按钮</button>
+        <ul>
+
+        </ul>
+    </div>
+
+    <script>
+        var ta = document.getElementsByTagName('textarea');
+        var btn = document.getElementsByTagName('button');
+        var ul = document.getElementsByTagName('ul');
+
+        btn[0].onclick = function() {
+            if (ta[0].value != '') {
+                var lis = document.createElement('li');
+                lis.innerHTML = ta[0].value;
+                ul[0].appendChild(lis);
+            }
+        }
+    </script>
+</body>
+
+</html>

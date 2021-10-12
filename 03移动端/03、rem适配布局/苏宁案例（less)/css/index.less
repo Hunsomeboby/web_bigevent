@@ -1,0 +1,99 @@
+// 导入common.less文件
+@import 'common';
+body{
+    min-width: 320px;
+    //电脑打开的时候，因为设计稿是750px，所有width设置为750px，换成rem:750px / 50 = 15rem
+    //为什么是除以50呢？因为750的屏幕划分为15等于50，html的字体大小为50px，所以要处于50px
+    width: 15rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica;
+    background: #F2F2F2;
+}
+@baseFont:50;
+.search-content{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15rem;
+    //页面元素如height的rem换算：页面元素的px / html字体大小50
+    //这里的高度是88px，为什么写成88rem，因为50没有单位，除法完成之后，要换成rem单位
+    //本质上这里的88rem是88px，因为除50之后的结果值rem是88px除得来的
+    height: (88rem / @baseFont);
+    .classify{
+        width: (44rem /@baseFont);
+        height: (70rem / @baseFont);
+        background-color: pink;
+        // margin: 11px 25px 7px 24px;
+        margin: (11rem / @baseFont) (25rem / @baseFont)  (7rem / @baseFont)  (24rem / @baseFont);
+        background: url(../images/classify.png) no-repeat;
+        background-size: (44rem /@baseFont) (70rem / @baseFont);
+    }
+    .serach{
+        flex: 1;
+        input{
+            outline: none;
+            font-size: (25rem / @baseFont);
+            padding-left: (55rem / @baseFont);
+            color: #757575;
+            border: 0;
+            height: (66rem / @baseFont);
+            width: 100%;
+            border-radius: (33rem / @baseFont);
+            background-color: rgba(255,255,255,.8);
+            margin-top: (12rem / @baseFont);
+        }
+    }
+    .login{
+        width: (75rem /@baseFont);
+        height: (70rem / @baseFont);
+        margin: (10rem / @baseFont);
+        font-size: (25rem / @baseFont);
+        color: #fff;
+        line-height:  (70rem / @baseFont);
+        text-align: center;
+      
+    }
+}
+.banner{
+    width: (749.8rem / @baseFont);
+    height: (368rem / @baseFont);
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.ad{
+    display: flex;
+    a{
+        flex: 1;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+nav{
+    width: (750rem / @baseFont);
+    a{
+        float: left;
+        background-color: pink;
+        width: (150rem / @baseFont);
+        height: (140rem / @baseFont);
+        text-align: center;
+        img{
+            display: block;
+            width: (82rem / @baseFont);
+            height: (82rem / @baseFont);
+            margin: (10rem / @baseFont) auto (6rem / @baseFont);
+        }
+        span{
+            vertical-align: top;
+            font-size: (25rem / @baseFont);
+            color: #333;    
+        }
+    }
+}

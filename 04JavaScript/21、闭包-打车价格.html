@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //闭包应用-计算打车价格
+        //起步价13（3公里内）,之后每增加一公里增加5块
+        //拥堵多收取10块
+        var car = (function() {
+            var start = 13; //起步价
+            var total = 0; //总价
+            return {
+                price: function(n) {
+                    if (n <= 3) {
+                        total = start;
+                    } else {
+                        total = start + (n - 3) * 5;
+                    }
+                    return total;
+                }, //正常总价
+                yd: function(flag) {
+                        return flag ? total + 10 : total;
+                    } //拥堵总价
+            }
+        })();
+        console.log(car.price(5));
+        console.log(car.yd(true));
+    </script>
+</body>
+
+</html>

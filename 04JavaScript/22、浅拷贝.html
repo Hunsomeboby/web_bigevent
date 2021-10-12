@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            name: 'andy',
+            //深层数据，拷贝的是地址
+            msg: {
+                age: 18
+            }
+        };
+        var o = {};
+        for (var k in obj) {
+            //k属性名     obj[k]属性值
+            o[k] = obj[k];
+        }
+        //修改了msg
+        o.msg.age = 28;
+        console.log(o);
+        //由于是地址拷贝，所以obj的msg也被修改了
+        console.log(obj);
+
+
+        // ***********************************************************
+        //浅拷贝，深层数据也是拷贝地址，但是可以代替上面的复杂操作
+        Object.assign(o, obj);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arrays = [2, 1, 4, 2, 5];
+        for (var i = 0; i < arrays.length; i++) {
+            for (var j = i; j < arrays.length - 1; j++) {
+                if (arrays[i] < arrays[j + 1]) {
+                    arrays[i] = arrays[j + 1];
+                }
+            }
+            console.log(arrays[i] + " " + j);
+        }
+        console.log(arrays);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

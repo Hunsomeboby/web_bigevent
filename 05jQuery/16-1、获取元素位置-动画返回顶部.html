@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+        
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 400px auto;
+            background-color: blue;
+        }
+        
+        .backtop {
+            display: none;
+            position: fixed;
+            top: 60%;
+            right: 0;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="backtop">返回顶部</div>
+    <script>
+        $(window).scroll(function() {
+            if ($(document).scrollTop() >= $(".box").offset().top) {
+                $(".backtop").css("display", "block");
+            } else {
+                $(".backtop").css("display", "none");
+            }
+        });
+        $(".backtop").click(function() {
+            //1、点击返回顶部
+            // $(document).scrollTop(0);
+            //2、带动画效果的返回顶部(动画是元素操作，不能写document，文档不能做动画)
+            $("body,html").stop().animate({
+                scrollTop: 0
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .tb-promo {
+            position: relative;
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+        }
+
+        .tb-promo img {
+            width: 520px;
+            height: 280px;
+            border-radius: 10px;
+        }
+        .prev,.right{
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            line-height: 30px;
+            background: rgba(0, 0, 0, .3);
+            width: 20px;
+            height: 30px;
+        }
+        .prev {
+            left: 0;
+            text-align: left;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        .right {
+            text-align: right;
+            right: 0;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+    
+        a{
+            color: royalblue;
+            text-decoration: none;
+        }
+        .promo-nav{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -35px;
+            width: 70px;
+            height: 13px;
+            background-color: rgba(255, 255, 255, .3);
+            border-radius: 7px;
+        }
+        .promo-nav li{
+            float: left;
+            border-radius: 50%;
+            margin: 3px;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+        }
+        .promo-nav .select{
+            background-color: #ff5000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tb-promo">
+        <img src="背景.jpg" alt="">
+        <a href="#" class="prev">&lt</a>
+        <a href="#" class="right">&gt</a>
+        <ui class="promo-nav">
+            <li class="select"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ui>
+    </div>
+</body>
+
+</html>

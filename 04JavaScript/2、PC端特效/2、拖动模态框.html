@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            text-align: center;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .two {
+            display: none;
+            width: 500px;
+            height: 200px;
+            background-color: blue;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            padding: 10px 15px;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 1;
+        }
+        
+        .two form label:nth-child(1) {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .two form label:nth-child(2) {
+            display: inline-block;
+            text-indent: 1em;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        #username,
+        #userpassword {
+            width: 400px;
+            height: 30px;
+        }
+        
+        .two form button {
+            display: block;
+            margin: 20px auto;
+            width: 100px;
+            height: 30px;
+        }
+        
+        .two div {
+            position: absolute;
+            top: 5px;
+            right: 11px;
+        }
+        
+        .three {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1600px;
+            height: 700px;
+            background-color: rgba(0, 0, 0, .5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one"><a href="#">点击，弹出登录框</a></div>
+    <div class="two">
+        <form action="">
+            <label for="" id="title">登陆会员</label>
+            <label for="">用户名：</label>
+            <input type="text" value="请输入用户名" id="username">
+            <br>
+            <label for="">登录密码：</label>
+            <input type="text" value="请输入登录密码" id="userpassword">
+            <br>
+            <button>登录会员</button>
+        </form>
+        <div id="closeBtn">X</div>
+    </div>
+    <div class="three"></div>
+    <script>
+        var one = document.getElementsByClassName('one');
+        var two = document.getElementsByClassName('two');
+        var three = document.getElementsByClassName('three');
+        var closeBtn = document.getElementById('closeBtn');
+        var title = document.getElementById('title');
+        one[0].addEventListener('click', function() {
+            two[0].style.display = 'block';
+            three[0].style.display = 'block';
+        });
+        closeBtn.addEventListener('click', function() {
+            two[0].style.display = 'none';
+            three[0].style.display = 'none';
+        });
+        //拖拽模态框
+        title.addEventListener('mousedown', function(e) {
+            var x = e.pageX - two[0].offsetLeft;
+            var y = e.pageY - two[0].offsetTop;
+            console.log(two[0].offsetLeft);
+            document.addEventListener('mousemove', move);
+
+            function move(e) {
+                two[0].style.left = e.pageX - x + 'px';
+                two[0].style.top = e.pageY - y + 'px';
+            }
+            //鼠标弹起，移动结束
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', move)
+            });
+        });
+    </script>
+</body>
+
+</html>

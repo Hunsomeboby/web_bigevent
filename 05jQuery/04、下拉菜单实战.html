@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .nav {
+            background-color: sandybrown;
+            padding: 0 300px;
+            height: 30px;
+        }
+        
+        a {
+            background-color: red;
+            width: 80px;
+            display: block;
+            text-align: center;
+            float: left;
+            height: 30px;
+            text-decoration: none;
+        }
+        
+        a ul {
+            background-color: royalblue;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <a href="#">微博
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </a>
+        <a href="#">微博
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </a>
+        <a href="#">微博
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </a>
+        <a href="#">微博
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </a>
+        <a href="#">微博
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </a>
+    </ul>
+    <script>
+        $(function() {
+            $('.nav>a').mousemove(function() {
+                $(this).children('ul').show();
+            });
+            $('.nav>a').mouseleave(function() {
+                $(this).children('ul').hide();
+            });
+        })
+    </script>
+</body>
+
+</html>

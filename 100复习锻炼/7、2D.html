@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 利用translate是盒子居中 start*/
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /* 利用translate是盒子居中 end*/
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            background-color: pink;
+        }
+        
+        img {
+            width: 50%;
+        }
+        
+        img:hover {
+            transform-origin: 50% 50%;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="../border.jpg" alt="">
+    </div>
+</body>
+
+</html>

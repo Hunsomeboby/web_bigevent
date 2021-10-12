@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 给父级添加flex属性 */
+            display: flex;
+            width: 600px;
+            height: 400px;
+            background-color: pink;
+            /* 默认主轴是x轴 那么y轴就是侧轴*/
+            /* 元素跟着主轴走 */
+            /* flex-direction: row; */
+            /* flex-direction: row-reverse; */
+            flex-direction: row;
+        }
+        
+        span {
+            flex: 1;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <a href="#">4</a>
+    </div>
+</body>
+
+</html>

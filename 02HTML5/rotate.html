@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            overflow: hidden;
+        }
+        
+        .clid {
+            width: 200px;
+            height: 200px;
+            transform-origin: left bottom;
+            background-color: rgb(54, 138, 99);
+            transition: all 1s;
+        }
+        
+        .father:hover .clid {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="father">
+        <div class="clid">
+
+        </div>
+    </div>
+    <div class="father"></div>
+</body>
+
+</html>

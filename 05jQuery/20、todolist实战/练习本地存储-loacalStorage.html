@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+            display: block;
+            width: 14px;
+            height: 14px;
+            border-radius: 14px;
+            color: #ccc;
+            text-align: center;
+            font-weight: bold;
+            line-height: 14px;
+            border: 6px double #FFF;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">-</a>
+    <script>
+        var arr = [{
+            title: "我今天吃八个馒头",
+            done: false
+        }, {
+            title: "我今天学习jq",
+            done: false
+        }];
+        //1、localStorage存储数据：以字符串的形势存储，下面的是数组对象，需要转换成字符串
+        // localStorage.setItem("todo", arr);
+        //2、将数组对象转成字符串格式
+        localStorage.setItem("todo", JSON.stringify(arr));
+        //3、获取数据，并将其转回原来的对象格式
+        // JSON.parse(localStorage.getItem("todo"))
+        var content = JSON.parse(localStorage.getItem("todo"));
+        console.log(content[0].title);
+    </script>
+</body>
+
+</html>

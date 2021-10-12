@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function success(data) {
+            console.log('拿到了Data数据：');
+            console.log(data);
+        }
+    </script>
+    <script src="08、解析JSONP.js?callback=success">
+        //1、这是直接在本html页面直接调用函数,这里不用src
+        // success({
+        //     name: 'zs',
+        //     age: 20
+        // });
+        //2、分离到js文件中调用函数，这里要用src,?callback=success,指定调用函数
+        //3、jsonp的使用步骤：①定义success回调函数 ②使用script调用即可
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: rosybrown;
+        }
+        .child{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 50px;
+            background-color: rgb(165, 20, 20);
+        }
+        .child-two{
+            display: block;
+            width: 100px;
+            height: 100px;
+            margin: 10px auto;
+            background-color: rgb(19, 13, 13);
+        }
+        /* 定位这一属性不会被子代继承 */
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="child">
+            <a class="child-two"></a>
+        </div>
+    </div>
+</body>
+</html>

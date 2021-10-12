@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /* 清除浮动  方法一：直接添加  overflow: hidden */
+            /* overflow: hidden; */
+            padding: 10px;
+            background-color: blue;
+        }
+        
+        .box>div {
+            width: 200px;
+            height: 200px;
+            margin-left: 5px;
+            float: left;
+            background-color: blueviolet;
+        }
+        /* 清除浮动  方法二 */
+        
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+        }
+        
+        .clearfix::after {
+            clear: both;
+        }
+        
+        .clearfix {
+            *zoom: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box clearfix">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

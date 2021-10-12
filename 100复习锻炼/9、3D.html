@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 600px;
+        }
+        
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 300px auto;
+            transform-style: preserve-3d;
+        }
+        
+        div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+        }
+        
+        div div:nth-child(1) {
+            background-color: purple;
+            transform: translateZ(200px);
+        }
+        
+        div div:nth-child(2) {
+            background-color: rgb(24, 190, 163);
+        }
+        
+        div div:nth-child(3) {
+            background-color: rgb(197, 30, 71);
+            transform: translateX(89px);
+            transform: rotateY(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+
+</html>

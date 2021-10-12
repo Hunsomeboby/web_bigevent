@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../lib/jquery.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        #angel {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/angel.gif" alt="" id="angel">
+
+    <script>
+        //1、获取到图片
+        var angel = $('#angle');
+        var timer = null; //一、定义一个节流阀
+        //2、绑定mousemove事件
+        $(document).on('mousemove', function(e) {
+            // console.log(e.pageX);
+            // console.log(e.pageY);
+            //三、判断节流阀是否为空
+            if (timer) {
+                return;
+            }
+            //二、开启定时器
+            timer = setTimeout(function() {
+                //3、设置图片位置
+                $('#angel').css('top', e.pageY + 'px').css('left', e.pageX + 'px');
+                timer = null;
+            }, 16);
+
+        })
+    </script>
+</body>
+
+</html>

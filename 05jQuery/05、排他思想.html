@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        $(function() {
+            $('button').mousemove(function() {
+                $(this).css('background-color', 'pink');
+            });
+            $('button').mouseleave(function() {
+                $('button').css('background-color', '');
+            });
+        });
+    </script>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+</body>
+
+</html>

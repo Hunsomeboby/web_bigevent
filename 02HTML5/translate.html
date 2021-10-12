@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(50, 73, 134);
+            transition: all 3s;
+        }
+        /* .one:hover {
+            transform: translate(500px);
+        } */
+        /* div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="one"></div>
+    <div></div>
+    <script>
+        var one = document.querySelector('.one');
+        var index = 100;
+        setInterval(function() {
+            index += 10;
+            one.style.transform = 'translate(' + index + 'px)';
+        }, 1000);
+    </script>
+</body>
+
+</html>

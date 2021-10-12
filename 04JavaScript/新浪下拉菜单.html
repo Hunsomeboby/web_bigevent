@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .box {
+            width: 1200px;
+            height: 650px;
+            background-color: blue;
+            margin: 30px auto;
+        }
+        
+        .nav {
+            height: 45px;
+            background-color: rgb(209, 30, 30);
+            text-align: center;
+            line-height: 45px;
+        }
+        
+        .nav_li {
+            float: left;
+            width: 33.33%;
+            height: 45px;
+        }
+        
+        .nav_li a {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+        }
+        
+        .nav_li ul {
+            background-color: rgb(170, 53, 135);
+            display: none;
+        }
+        
+        #child {
+            width: 160px;
+            height: 170px;
+            background-color: chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="nav">
+            <ul>
+                <li class="nav_li">
+                    <a href="#">登录 ↓</a>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+                <li class="nav_li">
+                    <a href="#">登录 ↓</a>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+                <li class="nav_li">
+                    <a href="#">登录 ↓</a>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var lis = document.getElementsByClassName("nav_li");
+        // console.log(lis.length);
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onmouseover = function() {
+                this.children[1].style.display = 'block';
+            }
+            lis[i].onmouseleave = function() {
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

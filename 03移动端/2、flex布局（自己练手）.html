@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            margin: 0 auto;
+            max-width: 720px;
+            min-width: 320px;
+            background-color: pink;
+        }
+        
+        .father {
+            /* 1.给父级添加flex属性 */
+            display: flex;
+            /* 2.设置主轴(X轴、或者Y轴)的排列方式  row  row-reverse column column-reverse*/
+            flex-direction: row;
+            /* 3、设置主轴上子元素的排列方式 flex-start center flex-end space-around  space-between*/
+            /* 水平居中 */
+            justify-content: center;
+            /* 4、设置子元素是否换行  nowrap(默认：不换行) wrap(换行)*/
+            /* 换行必须是子元素宽度不够，宽度固定的情况  如果不换行，宽度不够，则自动缩小 */
+            flex-wrap: nowrap;
+            /* 5、单行：侧轴排列方式(设置侧轴的对齐方式)*/
+            /* 侧轴居中 */
+            align-items: center;
+            /* 侧轴拉伸，将盒子的宽度拉满父盒子大小，子盒子不能给高度，否则失效 */
+            /* align-items: stretch; */
+            /* 6、多行：侧轴排列方式（设置侧轴的对齐方式)*/
+            /* align-content: flex-start; */
+            height: 250px;
+            color: #fff;
+            background-color: rgb(65, 51, 192);
+        }
+        
+        .father div {
+            /* 7、子项设置自己所占的份数 */
+            /* 每一份div只占1 */
+            /* flex: 1; */
+            width: 100px;
+            height: 50px;
+            background-color: rgb(9, 8, 19);
+        }
+        
+        .father div:nth-child(2) {
+            /* 8、子项设置自己所占的份数 */
+            /*第二个div自己占两份 3个div(1+1+2,所以平均分为了四份) */
+            /* flex: 2; */
+            /* height: 50px; */
+            background-color: rgb(35, 16, 240);
+        }
+        
+        .father div:nth-child(3) {
+            /* align-self: center; */
+            /* height: 50px; */
+            background-color: rgb(9, 8, 19);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son1">1</div>
+        <div class="son2">2</div>
+        <div class="son3">3</div>
+    </div>
+    <div class="father1">
+        <div class="son4"></div>
+        <div class="son5"></div>
+        <div class="son6"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            position: relative;
+            top: 0;
+            left: 600px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+
+        function animation(obj, target) {
+            //缓动动画,分十步完成
+            var setp = 0;
+            var time = setInterval(function() {
+                if (obj.offsetLeft == target) {
+                    clearInterval(time);
+                } else {
+                    setp = (target - obj.offsetLeft) / 10;
+                    setp = setp < 0 ? Math.floor(setp) : Math.ceil(setp);
+                    console.log(setp);
+                    obj.style.left = obj.offsetLeft + setp + 'px';
+                }
+            }, 30);
+        }
+        animation(box, 100);
+    </script>
+</body>
+
+</html>

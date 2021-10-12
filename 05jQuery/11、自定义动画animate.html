@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(230, 59, 59);
+        }
+    </style>
+</head>
+
+<body>
+    <button>动起来</button>
+    <div></div>
+    <script>
+        $(function() {
+            $("button").click(function() {
+                $("div").animate({
+                    top: 300,
+                    left: 200,
+                    // 透明度
+                    opacity: .4
+                }, 500);
+            });
+        });
+    </script>
+</body>
+
+</html>

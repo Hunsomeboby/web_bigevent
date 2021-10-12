@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- div标签  布局专用 -->
+    <div>
+        <!-- 文本格式化标签 -->
+        <strong>加粗</strong>
+        <em>倾斜</em>
+        <del>中划线</del>
+        <ins>下划线</ins>
+        <br>
+        <!-- 图片标签 -->
+        <img src="../border.jpg" alt="图片加载不了的时候用" title="图片标题" width="200px" height="200px">
+        <br>
+        <!-- 超文本链接 a标签 -->
+        <a href="#">这是a标签</a>
+        <!-- 表格 -->
+        <table>
+            <thead>
+                <tr>
+                    <th>标题一</th>
+                    <th>标题二</th>
+                    <th>标题三</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td colspan="2">2</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 表单 -->
+        <form action="" method="" name="" style="background-color: blue;">
+            爱好：<input type="checkbox">篮球
+            <!-- 复选框 -->
+            <input type="checkbox">足球
+            <input type="checkbox">羽毛球
+            <br> 性别：
+            <!-- 单选框 -->
+            <input type="radio" name="sex" checked='checked'>男
+            <input type="radio" name="sex">女
+            <br>
+            <!-- 下拉框 -->
+            请选择：
+            <select name="" id="">
+                <option value="">1</option>
+                <option value=""  selected='selected'>2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+            </select>
+            <br> 姓名：
+            <input type="text" name="" id="" value="请输入姓名">
+            <br> 密码：
+            <input type="password" name="" id="" maxlength="11">
+            <br>
+            <input type="reset" value="重置">
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function() {
+            $.ajax({
+                url: 'http://www.liulongbin.top:3006/api/jsonp?name=ls&age=30',
+                // 发起jsonp数据请求
+                dataType: 'jsonp',
+                success: function(res) {
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        input {
+            width: 60px;
+            text-align: center;
+        }
+        
+        .box {
+            width: 500px;
+            margin: 100px auto;
+        }
+        
+        .box>div {
+            background-color: blue;
+            margin-top: 10px;
+        }
+        
+        span {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div>
+            <span>单价:</span>
+            <span class="danJia">￥12.60</span>
+            <button class="decrement">-</button>
+            <input type="text" value="1">
+            <button class="increment">+</button>
+            <span>总价:</span>
+            <span class="zongJia">￥12.60</span>
+            <button style="margin-left: 55px;" class="remove">删除</button>
+        </div>
+        <div>
+            <span>单价:</span>
+            <span class="danJia">￥12.60</span>
+            <button class="decrement">-</button>
+            <input type="text" value="1">
+            <button class="increment">+</button>
+            <span>总价:</span>
+            <span class="zongJia">￥12.60</span>
+            <button style="margin-left: 55px;" class="remove">删除</button>
+        </div>
+        <div>
+            <span>单价:</span>
+            <span class="danJia">￥12.60</span>
+            <button class="decrement">-</button>
+            <input type="text" value="1">
+            <button class="increment">+</button>
+            <span>总价:</span>
+            <span class="zongJia">￥12.60</span>
+            <button style="margin-left: 55px;" class="remove">删除</button>
+        </div>
+        <div>
+            <div class="zongshujian">总数件：</div>
+            <div class="zongjiage" style="margin-top: 6px;">总价格：</div>
+            <br>
+            <button class="removeall">清空</button>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $(".increment").click(function() {
+                //1、点击加号，自增1
+                var values = $(this).siblings("input").val();
+                values++;
+                $(this).siblings("input").val(values);
+                //3、计算自增后的商品总价，并显示
+                // console.log($(this).siblings(".danJia").text().substr(1));
+                // console.log($(this).siblings(".danJia").text().substr(1) * values);
+                $(this).siblings(".zongJia").text("￥" + $(this).siblings(".danJia").text().substr(1) * values);
+                //5、计算总数件
+                var count = 0;
+                $("input").each(function(index, Ele) {
+                    count += parseInt($(Ele).val());
+                });
+                $(".zongshujian").text("总数件：" + count);
+                //6、计算总价格
+                var count_money = 0;
+                $(".zongJia").each(function(index, Ele) {
+                    count_money += parseFloat($(Ele).text().substr(1));
+                });
+                $(".zongjiage").text("总价格：" + count_money);
+            });
+            $(".decrement").click(function() {
+                //2、点击减号，自减1
+                var values = $(this).siblings("input").val();
+                values--;
+                if (values <= 0) {
+                    values = 0;
+                }
+                $(this).siblings("input").val(values);
+                //3、计算自减后的商品总价，并显示
+                // console.log($(this).siblings(".danJia").text().substr(1));
+                // console.log($(this).siblings(".danJia").text().substr(1) * values);
+                $(this).siblings(".zongJia").text("￥" + $(this).siblings(".danJia").text().substr(1) * values);
+                //5、计算总数件
+                var count = 0;
+                $("input").each(function(index, Ele) {
+                    count += parseInt($(Ele).val());
+                });
+                $(".zongshujian").text("总数件：" + count);
+                //6、计算总价格
+                var count_money = 0;
+                $(".zongJia").each(function(index, Ele) {
+                    count_money += parseFloat($(Ele).text().substr(1));
+                });
+                $(".zongjiage").text("总价格：" + count_money);
+            });
+            $("input").change(function() {
+                // 4、文本框输入值时，做出变化
+                // var values = $(this).val();
+                // console.log(values);
+                $(this).siblings(".zongJia").text("￥" + $(this).val() * $(this).siblings(".danJia").text().substr(1));
+                //5、计算总数件
+                var count = 0;
+                $("input").each(function(index, Ele) {
+                    count += parseInt($(Ele).val());
+                });
+                $(".zongshujian").text("总数件：" + count);
+                //6、计算总价格
+                var count_money = 0;
+                $(".zongJia").each(function(index, Ele) {
+                    count_money += parseFloat($(Ele).text().substr(1));
+                });
+                $(".zongjiage").text("总价格：" + count_money);
+            });
+            //7、删除一行
+            $(".remove").click(function() {
+                $(this).parent().remove();
+            });
+            //7、全部清空
+            $(".removeall").click(function() {
+                $(this).parent().siblings("div").remove();
+            });
+        });
+    </script>
+</body>
+
+</html>

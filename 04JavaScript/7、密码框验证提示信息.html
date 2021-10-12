@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 340px;
+            height: 50px;
+            margin: 50px auto;
+        }
+        
+        input,
+        img,
+        p {
+            float: left;
+            margin-top: 0;
+        }
+        
+        img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+        
+        .fasle {
+            color: red;
+        }
+        
+        .true {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" name="" id="">
+        <img src="images/美女1号.jpg">
+        <p>请输入8-16位密码</p>
+
+    </div>
+    <script>
+        var input = document.getElementsByTagName("input");
+        var p = document.getElementsByTagName('p');
+        var img = document.getElementsByTagName('img');
+        input[0].onblur = function() {
+            var content = input[0].value;
+            if (content.length >= 6 && content.length <= 18) {
+                p[0].innerText = '密码格式正确';
+                p[0].className = 'true';
+                img[0].src = "images/美女1号.jpg";
+            } else {
+                p[0].innerText = '密码格式错误';
+                p[0].className = 'fasle';
+                img[0].src = "images/美女2号.jpg";
+            }
+        }
+    </script>
+</body>
+
+</html>

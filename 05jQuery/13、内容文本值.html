@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <span>我是内容</span>
+    </div>
+    <script>
+        // 1、获取元素内容 连标签也一起获取
+        console.log($("div").html());
+        // 1-2、修改元素内容
+        $("div").html(123);
+    </script>
+</body>
+
+</html>

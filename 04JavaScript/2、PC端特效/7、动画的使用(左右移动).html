@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="6、animate动画函数封装.js"></script>
+    <title>Document</title>
+    <style>
+        .father {
+            position: fixed;
+            right: 0;
+            top: 500px;
+            width: 30px;
+            height: 30px;
+            background-color: pink;
+        }
+        
+        .son {
+            position: absolute;
+            top: 0;
+            right: -100px;
+            width: 100px;
+            height: 30px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        father.addEventListener('mouseenter', function() {
+            // animate_huandong(obj, target, callback)
+            animate_huandong(son, -100);
+        });
+        father.addEventListener('mouseleave', function() {
+            // animate_huandong(obj, target, callback)
+            animate_huandong(son, 100);
+        });
+    </script>
+</body>
+
+</html>

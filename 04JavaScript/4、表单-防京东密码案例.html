@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: pink;
+            width: 400px;
+            height: 30px;
+            margin: 10px auto;
+            padding-top: 5px;
+        }
+        
+        input {
+            outline: none;
+        }
+        
+        img {
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="password" id="pw">
+        <label for="pw">
+            <img src="images/美女1号.jpg" alt="">
+        </label>
+    </div>
+    <script>
+        var img = document.getElementsByTagName("img");
+        var pw = document.getElementById("pw");
+        var key = 0;
+        img[0].onclick = function() {
+            if (key == 0) {
+                key = 1;
+                pw.type = "text";
+                img[0].src = "images/美女2号.jpg";
+            } else {
+                key = 0;
+                pw.type = "password";
+                img[0].src = "images/美女1号.jpg";
+            }
+        }
+    </script>
+</body>
+
+</html>

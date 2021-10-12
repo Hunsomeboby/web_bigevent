@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        //1、存放三种颜色 each
+        var arr_color = ["red", "green", "blue"];
+        $("div").each(function(index, doEle) {
+            console.log(index + doEle);
+
+            $(doEle).css("backgroundColor", arr_color[index]);
+        });
+        //2、$.each()
+        //2-1遍历数组 i:下标 e:内容
+        $.each(arr_color, function(i, e) {
+            console.log(i);
+            console.log(e);
+        });
+        //2-1遍历对象 i:属性名   e:属性值
+        $.each({
+            name: '靓仔',
+            age: "18"
+        }, function(i, e) {
+            console.log(i + ':' + e);
+        });
+    </script>
+</body>
+
+</html>

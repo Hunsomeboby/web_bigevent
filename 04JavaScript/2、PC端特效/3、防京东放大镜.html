@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 50px 50px;
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background-color: pink;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .big_img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(250, 31, 67);
+        }
+        
+        .fangdakuang {
+            display: none;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            width: 400px;
+            height: 400px;
+            background-color: rgb(250, 31, 67);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="3.jpg" alt="">
+        <div class="mask"></div>
+        <div class="fangdakuang">
+            <img src="3.jpg" alt="" class="big_img">
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function() {
+            var box = document.querySelector('.box');
+            var mask = document.querySelector('.mask');
+            var fangdakuang = document.querySelector('.fangdakuang');
+            //鼠标经过显示和隐藏
+            box.addEventListener('mouseover', function() {
+                mask.style.display = 'block';
+                fangdakuang.style.display = 'block';
+            });
+            box.addEventListener('mouseout', function() {
+                mask.style.display = 'none';
+                fangdakuang.style.display = 'none';
+            });
+            //遮挡层跟随鼠标移动
+            box.addEventListener('mousemove', function(e) {
+                var x = e.pageX - box.offsetLeft;
+                var y = e.pageY - box.offsetTop;
+                console.log(x + ',' + y);
+                var maskX = x - mask.offsetWidth / 2;
+                var maskY = y - mask.offsetHeight / 2;
+                var maskMax = box.offsetWidth - mask.offsetWidth;
+                //x,y不能超出规定范围
+                if (maskX <= 0) {
+                    maskX = 0;
+                } else if (maskX >= maskMax) {
+                    maskX = maskMax;
+                }
+                if (maskY <= 0) {
+                    maskY = 0;
+                } else if (maskY >= box.offsetHeight - mask.offsetHeight) {
+                    maskY = box.offsetHeight - mask.offsetHeight;
+                }
+                mask.style.left = maskX + 'px';
+                mask.style.top = maskY + 'px';
+
+                //放大图片的移动计算
+                var big_img = document.querySelector('.big_img');
+                big_img.style.left = -maskX + 'px';
+                big_img.style.top = -maskY + 'px';
+            });
+        });
+    </script>
+</body>
+
+</html>
