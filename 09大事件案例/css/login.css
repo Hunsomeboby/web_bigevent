@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+body {
+    position: relative;
+    background-image: url(../images/login_bg.jpg);
+}
+
+#container {
+    padding-top: 30px;
+    height: 650px;
+}
+
+#logo {
+    width: 200px;
+    height: 70px;
+    margin-left: 90px;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+}
+
+#register {
+    position: absolute;
+    width: 350px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(202, 207, 212);
+}
+
+.title {
+    width: 350px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.title img {
+    vertical-align: middle;
+}
+
+.reg_content {
+    display: none;
+}
+
+.ipt {
+    text-align: center;
+}
+
+.ipt input,
+.btn_reg {
+    width: 300px;
+    height: 30px;
+    margin-top: 15px;
+}
+
+.ipt input {
+    padding-left: 3px;
+    border: solid 1px #eeeeee;
+}
+
+.btn_reg {
+    border: none;
+    background-color: rgb(7, 177, 245);
+}
+
+#tixing {
+    margin-top: 15px;
+    padding-right: 28px;
+    text-align: right;
+    font-size: 10px;
+    font-weight: 700;
+    color: black;
+}
+
+#tixing a {
+    text-decoration: none;
+}
